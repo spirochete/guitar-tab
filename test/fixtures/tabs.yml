@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  author: MyString
+  artist: MyString
+  song: MyString
+  tuning: MyString
+
+two:
+  author: MyString
+  artist: MyString
+  song: MyString
+  tuning: MyString

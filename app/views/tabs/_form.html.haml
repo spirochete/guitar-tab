@@ -1,0 +1,22 @@
+= form_for @tab do |f|
+  - if @tab.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@tab.errors.count, "error")} prohibited this tab from being saved:"
+      %ul
+        - @tab.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :author
+    = f.text_field :author
+  .field
+    = f.label :artist
+    = f.text_field :artist
+  .field
+    = f.label :song
+    = f.text_field :song
+  .field
+    = f.label :tuning
+    = f.text_field :tuning
+  .actions
+    = f.submit 'Save'
