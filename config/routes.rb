@@ -1,4 +1,7 @@
 GuitarTab::Application.routes.draw do
+  resources :tabs
+  
+  root :to => "tabs#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
