@@ -2,7 +2,10 @@ class TabsController < ApplicationController
   # GET /tabs
   # GET /tabs.json
   def index
-    @tabs = Tab.all
+    @search = Tab.search do
+      fulltext params[:search]
+    end
+    @tabs = @search.results
 
     respond_to do |format|
       format.html # index.html.erb

@@ -26,6 +26,8 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'mongo_mapper'
 gem 'bson_ext'
+gem 'sunspot_mongo'
+gem 'sunspot_solr'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
