@@ -17,8 +17,13 @@ class User
   key :last_sign_in_ip, String
   timestamps!
   
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :email, :username, :password, :password_confirmation, :remember_me
+  attr_accessor :current_password
+
+  validates_presence_of :username
+  validates_uniqueness_of :username
   
   devise :database_authenticatable, :registerable, :validatable, :recoverable, :rememberable, :trackable
+
 
 end
