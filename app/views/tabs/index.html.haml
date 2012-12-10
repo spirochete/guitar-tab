@@ -9,14 +9,17 @@
 
 %table
   %tr
-    %th Author
     %th Artist
     %th Song
     %th Tuning
+    %th Tabbed By
 
   - @tabs.each do |tab|
     %tr
-      %td= tab.author
       %td= tab.artist
       %td= tab.song
       %td= tab.tuning
+      - if tab.user.present?
+        %td= tab.user.username
+      - else
+        %td

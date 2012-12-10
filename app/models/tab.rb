@@ -2,14 +2,15 @@ class Tab
   include MongoMapper::Document
   include Sunspot::Mongo
 
-  key :author, String
+  belongs_to :user
+
   key :artist, String
   key :song, String
-  key :tuning, String, :length => 6
+  key :tuning, String, :length => 12
 
   searchable do
-    text :artist
-    text :song
-    text :tuning
+    string :artist
+    string :song
+    string :tuning
   end
 end

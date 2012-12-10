@@ -1,9 +1,6 @@
 %p#notice= notice
 
 %p
-  %b Author:
-  = @tab.author
-%p
   %b Artist:
   = @tab.artist
 %p
@@ -12,6 +9,10 @@
 %p
   %b Tuning:
   = @tab.tuning
+
+%p
+  %b Tabbed By:
+  = @tab.user.username
 
 = link_to 'Edit', edit_tab_path(@tab)
 \|

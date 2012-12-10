@@ -6,6 +6,8 @@ class TabsController < ApplicationController
   def index
     @search = Tab.search do
       fulltext params[:search]
+      order_by :artist
+      order_by :song
     end
     @tabs = @search.results
 
@@ -46,6 +48,7 @@ class TabsController < ApplicationController
   # POST /tabs.json
   def create
     @tab = Tab.new(params[:tab])
+    @tab.user = current_user
 
     respond_to do |format|
       if @tab.save

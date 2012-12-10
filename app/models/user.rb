@@ -1,5 +1,7 @@
 class User
   include MongoMapper::Document
+
+  has_many :tabs
   
   key :email, String
   key :username, String
