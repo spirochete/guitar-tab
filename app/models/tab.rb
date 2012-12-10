@@ -9,5 +9,7 @@ class Tab
 
   searchable do
     text :artist
+    text :song
+    text :tuning
   end
 end

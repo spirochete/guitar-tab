@@ -1,4 +1,6 @@
 class TabsController < ApplicationController
+
+  before_filter :authenticate_user!
   # GET /tabs
   # GET /tabs.json
   def index
