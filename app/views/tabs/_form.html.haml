@@ -17,6 +17,6 @@
     = f.text_field :song
   .field
     = f.label :tuning
-    = f.text_field :tuning
+    = f.text_field :tuning, {:maxlength => 6, :size => 5}
   .actions
     = f.submit 'Save'

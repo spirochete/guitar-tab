@@ -13,9 +13,6 @@
     %th Artist
     %th Song
     %th Tuning
-    %th
-    %th
-    %th
 
   - @tabs.each do |tab|
     %tr
@@ -23,9 +20,6 @@
       %td= tab.artist
       %td= tab.song
       %td= tab.tuning
-      %td= link_to 'Show', tab
-      %td= link_to 'Edit', edit_tab_path(tab)
-      %td= link_to 'Destroy', tab, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
