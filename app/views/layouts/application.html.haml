@@ -13,7 +13,21 @@
   %body
     %header.navbar.navbar-fixed-top
       %nav.navbar-inner
-        .container
+        .nav-left
+          = link_to "Guitar Tab", tabs_path
+          = link_to "Add New Tab", new_tab_path
+        .nav-right
+          -if user_signed_in?
+            = "Hello, #{current_user.email}"
+            = link_to "Settings", edit_user_registration_path
+            = link_to "Logout", destroy_user_session_path, :method => :delete
+          -else
+            = link_to "Register", new_user_registration_path
+            or
+            = link_to "Login", new_user_session_path
+          
+
+
     #main{:role => "main"}
       .container
         .content

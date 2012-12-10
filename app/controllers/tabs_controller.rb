@@ -1,6 +1,6 @@
 class TabsController < ApplicationController
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:show, :index]
   # GET /tabs
   # GET /tabs.json
   def index
