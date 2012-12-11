@@ -14,6 +14,7 @@
     %th Song
     %th Tuning
     %th Tabbed By
+    %th URL
 
   - @tabs.each do |tab|
     %tr
@@ -24,3 +25,4 @@
         %td= link_to tab.user.username, tabs_path(:view => tab.user.username)
       - else
         %td
+      %td= link_to "open", tab.submission.url

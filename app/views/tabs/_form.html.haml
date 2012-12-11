@@ -1,4 +1,4 @@
-= form_for @tab do |f|
+= form_for @tab, :html => {:multipart => true} do |f|
   - if @tab.errors.any?
     #error_explanation
       %h2= "#{pluralize(@tab.errors.count, "error")} prohibited this tab from being saved:"
@@ -15,5 +15,9 @@
   .field
     = f.label :tuning
     = f.text_field :tuning
+  .field
+    = f.label :submission
+    = f.file_field :submission
+  = f.hidden_field :submission_cache
   .actions
     = f.submit 'Save'
