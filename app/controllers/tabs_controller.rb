@@ -8,6 +8,11 @@ class TabsController < ApplicationController
       fulltext params[:search]
       if params[:view] == "mine"
         with(:user_id).equal_to(current_user.id)
+      elsif params[:view].present?
+        @uname = User.where(:username => params[:view]).first
+        if !@uname.nil?
+          with(:user_id).equal_to(@uname.id)
+        end
       end
       order_by :artist
       order_by :song

@@ -4,6 +4,7 @@
   = form_tag tabs_path, :method => :get do
     %p
       = text_field_tag :search, params[:search]
+      = hidden_field_tag :view, params[:view]
       = submit_tag "Search", :name => nil
 
 
@@ -20,6 +21,6 @@
       %td= tab.song
       %td= tab.tuning
       - if tab.user.present?
-        %td= tab.user.username
+        %td= link_to tab.user.username, tabs_path(:view => tab.user.username)
       - else
         %td
