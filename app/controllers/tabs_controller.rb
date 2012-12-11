@@ -6,6 +6,9 @@ class TabsController < ApplicationController
   def index
     @search = Tab.search do
       fulltext params[:search]
+      if params[:view] == "mine"
+        with(:user_id).equal_to(current_user.id)
+      end
       order_by :artist
       order_by :song
     end

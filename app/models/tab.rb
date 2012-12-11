@@ -15,5 +15,6 @@ class Tab
     text :artist
     text :song
     text :tuning
+    string :user_id
   end
 end
