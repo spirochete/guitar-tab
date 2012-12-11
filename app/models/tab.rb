@@ -12,5 +12,8 @@ class Tab
     string :artist
     string :song
     string :tuning
+    text :artist
+    text :song
+    text :tuning
   end
 end
