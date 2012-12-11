@@ -6,7 +6,7 @@ class Tab
 
   key :artist, String
   key :song, String
-  key :tuning, String, :length => 12
+  key :tuning
 
   searchable do
     string :artist
