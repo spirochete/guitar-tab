@@ -33,5 +33,7 @@
         .content
           .row
             .span12
+              - if flash[:error]
+                %p.error= "Error: #{flash[:error]}"
               = yield
           %footer

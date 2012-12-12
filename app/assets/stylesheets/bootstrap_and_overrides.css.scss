@@ -6,4 +6,5 @@ td, th { padding: 5px; border: 1px solid #000; }
 .nav-left {float: left; padding-top: 10px; }
 .submit { margin-top: 10px; }
 .checkbox.inline { padding-left: 2px; }
+.error { background-color: #87ceeb; width: 400px; padding: 10px; border: 1px dashed #000; }
 @import "bootstrap-responsive";

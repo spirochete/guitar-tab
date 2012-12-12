@@ -2,7 +2,6 @@ GuitarTab::Application.routes.draw do
 
   resources :tabs
   devise_for :users
-  resources :user
 
   
   root :to => "tabs#index"

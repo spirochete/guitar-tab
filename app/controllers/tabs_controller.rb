@@ -7,7 +7,11 @@ class TabsController < ApplicationController
     @search = Tab.search do
       fulltext params[:search]
       if params[:view] == "mine"
-        with(:user_id).equal_to(current_user.id)
+        if user_signed_in?
+          with(:user_id).equal_to(current_user.id)
+        else
+          flash[:error] = "You need to log in to view your own tabs"
+        end
       elsif params[:view].present?
         @uname = User.where(:username => params[:view]).first
         if !@uname.nil?
