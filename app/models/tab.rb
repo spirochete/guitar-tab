@@ -3,15 +3,15 @@ class Tab
   include Sunspot::Rails
   include Sunspot::Mongo
 
-  attr_accessible :submission, :submission_cache
-  mount_uploader :submission, SubmissionUploader
-
   belongs_to :user
 
   key :artist, String
   key :song, String
   key :tuning, String
   key :submission_file_name, String
+
+  attr_accessible :submission, :submission_cache, :artist, :song, :tuning
+  mount_uploader :submission, SubmissionUploader
 
   searchable do
     string :artist
@@ -21,6 +21,5 @@ class Tab
     text :song
     text :tuning
     string :user_id
-    string :submission_file_name
   end
 end
