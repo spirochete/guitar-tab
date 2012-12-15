@@ -1,13 +1,15 @@
-%h1 Guitar Tabs
+%h2 Your Tabs
 
 #whatever
-  = form_tag tabs_path, :method => :get do
+  = form_tag "mine", :method => :get do
     %p
       = text_field_tag :search, params[:search]
-      = hidden_field_tag :username, params[:username]
       = submit_tag "Search", :name => nil
 
 
+%div= "Count: #{@tabs.count} tabs"
+
+%br
 %table
   %tr
     %th Artist

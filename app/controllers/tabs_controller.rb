@@ -6,13 +6,7 @@ class TabsController < ApplicationController
   def index
     @search = Tab.search do
       fulltext params[:search]
-      if params[:username] == "mine"
-        if user_signed_in?
-          with(:user_id).equal_to(current_user.id)
-        else
-          flash.now[:error] = "You need to log in to view My Tabs"
-        end
-      elsif params[:username].present?
+      if params[:username].present?
         @uname = User.where(:username => params[:username]).first
         if !@uname.nil?
           with(:user_id).equal_to(@uname.id)
@@ -20,6 +14,23 @@ class TabsController < ApplicationController
       end
       order_by :artist
       order_by :song
+    end
+    @tabs = @search.results
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @tabs }
+    end
+  end
+
+  def mine
+    if user_signed_in?
+      @search = Tab.search do
+        fulltext params[:search]
+        with(:user_id).equal_to(current_user.id)
+      end
+    else
+      flash.now[:error] = "You need to log in to view My Tabs"
     end
     @tabs = @search.results
 
