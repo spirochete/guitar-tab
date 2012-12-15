@@ -16,7 +16,7 @@
         .nav-left
           = link_to "Guitar Tab", tabs_path
           = link_to "Add New Tab", new_tab_path
-          = link_to "My Tabs", tabs_path(:view => "mine")
+          = link_to "My Tabs", "/tabs/by/#{current_user.username}"
         .nav-right
           -if user_signed_in?
             = "Hello, #{current_user.username}"
@@ -34,6 +34,10 @@
           .row
             .span12
               - if flash[:error]
-                %p.error= "Error: #{flash[:error]}"
+                %p.error= flash[:error]
+              - if flash[:notice]
+                %p.error= flash[:notice] 
+              - if flash[:alert]
+                %p.error= flash[:alert]                             
               = yield
           %footer

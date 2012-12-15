@@ -6,14 +6,14 @@ class TabsController < ApplicationController
   def index
     @search = Tab.search do
       fulltext params[:search]
-      if params[:view] == "mine"
+      if params[:username] == "mine"
         if user_signed_in?
           with(:user_id).equal_to(current_user.id)
         else
-          flash[:error] = "You need to log in to view your own tabs"
+          flash.now[:error] = "You need to log in to view My Tabs"
         end
-      elsif params[:view].present?
-        @uname = User.where(:username => params[:view]).first
+      elsif params[:username].present?
+        @uname = User.where(:username => params[:username]).first
         if !@uname.nil?
           with(:user_id).equal_to(@uname.id)
         end
@@ -24,8 +24,21 @@ class TabsController < ApplicationController
     @tabs = @search.results
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @tabs }
+    end
+  end
+
+  def profile
+    if params[:username].present?
+      @user = User.where(:username => params[:username]).first
+      if @user.nil?
+        flash[:error] = "User doesn't exist!"
+      end
+    end
+    respond_to do |format|
+      format.html
+      format.json { render json: @user }
     end
   end
 

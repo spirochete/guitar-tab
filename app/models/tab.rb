@@ -22,4 +22,5 @@ class Tab
     text :tuning
     string :user_id
   end
+
 end

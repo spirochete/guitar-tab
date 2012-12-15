@@ -22,7 +22,7 @@
       %td= tab.song
       %td= tab.tuning
       - if tab.user.present?
-        %td= link_to tab.user.username, tabs_path(:view => tab.user.username)
+        %td= link_to tab.user.username, "/profile/#{tab.user.username}"
       - else
         %td
       %td= link_to "open", tab.submission.url

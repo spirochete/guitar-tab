@@ -1,0 +1,15 @@
+%h1= @user.username
+
+%br
+%div
+  url:
+  -if @user.my_url.present?
+    = link_to "#{@user.my_url}", @user.my_url
+%br
+%div
+  about:
+  -if @user.about.present?
+    = @user.about
+
+%br
+%div= link_to "See tabs by #{@user.username}", "/tabs/by/#{@user.username}"

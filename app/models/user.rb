@@ -7,6 +7,8 @@ class User
   key :username, String
   key :first_name, String
   key :last_name, String
+  key :about, String
+  key :my_url, String
   key :encrypted_password, String
   key :password_salt, String
   key :reset_password_token, String
@@ -19,7 +21,7 @@ class User
   key :last_sign_in_ip, String
   timestamps!
   
-  attr_accessible :email, :username, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :username, :password, :password_confirmation, :remember_me, :about, :my_url
   attr_accessor :current_password
 
   validates_presence_of :username

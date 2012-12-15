@@ -5,6 +5,9 @@ GuitarTab::Application.routes.draw do
 
   
   root :to => "tabs#index"
+
+  match 'profile/:username' => 'tabs#profile'
+  match 'tabs/by/:username' => 'tabs#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
