@@ -1,6 +1,6 @@
 class TabsController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :authenticate_user!, :except => [:show, :index, :profile]
   # GET /tabs
   # GET /tabs.json
   def index
@@ -29,8 +29,6 @@ class TabsController < ApplicationController
         fulltext params[:search]
         with(:user_id).equal_to(current_user.id)
       end
-    else
-      flash.now[:error] = "You need to log in to view My Tabs"
     end
     @tabs = @search.results
 
