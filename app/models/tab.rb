@@ -13,6 +13,8 @@ class Tab
   attr_accessible :submission, :submission_cache, :artist, :song, :tuning
   mount_uploader :submission, SubmissionUploader
 
+  validates_presence_of :artist, :song, :tuning, :submission
+
   searchable do
     string :artist
     string :song

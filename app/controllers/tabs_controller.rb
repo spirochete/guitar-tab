@@ -11,6 +11,8 @@ class TabsController < ApplicationController
         if !@uname.nil?
           with(:user_id).equal_to(@uname.id)
         end
+      elsif params[:artist].present?
+        with(:artist).equal_to(params[:artist])
       end
       order_by :artist
       order_by :song

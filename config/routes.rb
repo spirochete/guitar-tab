@@ -4,11 +4,12 @@ GuitarTab::Application.routes.draw do
   devise_for :users
 
   
-  root :to => "tabs#index"
+  match "/" => "tabs#index"
 
   match 'profile/:username' => 'tabs#profile'
-  match 'tabs/by/:username' => 'tabs#index'
+  match '/by/:username' => 'tabs#index'
   match 'mine' => 'tabs#mine'
+  match '/index/:artist' => 'tabs#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
