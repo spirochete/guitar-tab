@@ -16,15 +16,17 @@
     %th Song
     %th Tuning
     %th Tabbed By
-    %th URL
+    %th
+    %th
 
   - @tabs.each do |tab|
     %tr
       %td= tab.artist
-      %td= tab.song
+      %td= link_to tab.song, tab.submission.url
       %td= tab.tuning
       - if tab.user.present?
         %td= link_to tab.user.username, "/profile/#{tab.user.username}"
       - else
         %td
-      %td= link_to "open", tab.submission.url
+      %td= link_to 'Edit', edit_tab_path(tab)
+      %td= link_to 'Delete', tab, :confirm => 'Really?', :method => :delete

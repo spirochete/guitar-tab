@@ -120,7 +120,7 @@ class TabsController < ApplicationController
     @tab.destroy
 
     respond_to do |format|
-      format.html { redirect_to tabs_url }
+      format.html { redirect_to "/mine", notice: 'Tab was deleted.'}
       format.json { head :no_content }
     end
   end

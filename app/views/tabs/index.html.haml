@@ -15,18 +15,16 @@
       %th Song
       %th Tuning
       %th Tabbed By
-      %th URL
 
   
     - @tabs.each do |tab|
       %tr
         %td= link_to tab.artist, "/index/#{tab.artist}"
-        %td= tab.song
+        %td= link_to tab.song, tab.submission.url
         %td= tab.tuning
         - if tab.user.present?
           %td= link_to tab.user.username, "/profile/#{tab.user.username}"
         - else
           %td
-        %td= link_to "open", tab.submission.url
 - else
   %p No tabs found.
