@@ -11,20 +11,23 @@
 - if !@tabs.nil?
   %table
     %tr
-      %th Artist
-      %th Song
+      %th Artist/Song
       %th Tuning
       %th Tabbed By
+      %th Last Updated
 
   
     - @tabs.each do |tab|
       %tr
-        %td= link_to tab.artist, "/index/#{tab.artist}"
-        %td= link_to tab.song, tab.submission.url
+        %td
+          = link_to tab.artist.camelize, "/index/#{tab.artist}"
+          \-
+          = link_to tab.song.camelize, tab.submission.url
         %td= tab.tuning
         - if tab.user.present?
           %td= link_to tab.user.username, "/profile/#{tab.user.username}"
         - else
           %td
+        %td= tab.updated_at
 - else
   %p No tabs found.

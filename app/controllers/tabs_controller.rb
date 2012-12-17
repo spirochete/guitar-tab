@@ -16,6 +16,8 @@ class TabsController < ApplicationController
       end
       order_by :artist
       order_by :song
+      order_by :tuning
+      order_by :updated_at
     end
     @tabs = @search.results
 
@@ -88,7 +90,7 @@ class TabsController < ApplicationController
 
     respond_to do |format|
       if @tab.save
-        format.html { redirect_to @tab, notice: 'Tab was successfully created.' }
+        format.html { redirect_to "/mine", notice: 'Tab was successfully created.' }
         format.json { render json: @tab, status: :created, location: @tab }
       else
         format.html { render action: "new" }
@@ -104,7 +106,7 @@ class TabsController < ApplicationController
 
     respond_to do |format|
       if @tab.update_attributes(params[:tab])
-        format.html { redirect_to @tab, notice: 'Tab was successfully updated.' }
+        format.html { redirect_to "/mine", notice: 'Tab was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

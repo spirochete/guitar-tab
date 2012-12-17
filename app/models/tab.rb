@@ -9,8 +9,9 @@ class Tab
   key :song, String
   key :tuning, String
   key :submission_file_name, String
+  timestamps!
 
-  attr_accessible :submission, :submission_cache, :artist, :song, :tuning
+  attr_accessible :submission, :submission_cache, :artist, :song, :tuning, :created_at, :updated_at
   mount_uploader :submission, SubmissionUploader
 
   validates_presence_of :artist, :song, :tuning, :submission
@@ -19,6 +20,7 @@ class Tab
     string :artist
     string :song
     string :tuning
+    time :updated_at
     text :artist
     text :song
     text :tuning
