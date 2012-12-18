@@ -11,8 +11,9 @@
 /db/*.sqlite3
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
+/log
 /tmp
 
-# Ignore Sunspot's pid
-sunspot-solr.pid
+# Ignore Sunspot pid/data
+/solr
+/sunspot-solr.pid
