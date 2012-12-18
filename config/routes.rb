@@ -9,7 +9,6 @@ GuitarTab::Application.routes.draw do
   match 'profile/:username' => 'tabs#profile'
   match '/by/:username' => 'tabs#index'
   match 'mine' => 'tabs#mine'
-  match '/index/:artist' => 'tabs#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -4,7 +4,6 @@
   = form_tag tabs_path, :method => :get do
     %p
       = text_field_tag :search, params[:search]
-      = hidden_field_tag :username, params[:username]
       = submit_tag "Search", :name => nil
 
 
@@ -20,7 +19,7 @@
     - @tabs.each do |tab|
       %tr
         %td
-          = link_to tab.artist.camelize, "/index/#{tab.artist}"
+          = link_to tab.artist.camelize, tabs_path(:search => tab.artist)
           \-
           = link_to tab.song.camelize, tab.submission.url
         %td= tab.tuning

@@ -4,6 +4,7 @@ require 'rubygems'
 require 'mongo'
 source 'http://gemcutter.org'
 gem 'rails', '3.2.8'
+gem 'thin'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

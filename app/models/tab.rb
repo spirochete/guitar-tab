@@ -17,13 +17,13 @@ class Tab
   validates_presence_of :artist, :song, :tuning, :submission
 
   searchable do
-    string :artist
-    string :song
-    string :tuning
-    time :updated_at
     text :artist
     text :song
     text :tuning
+    time :updated_at
+    string :artist
+    string :song
+    string :tuning
     string :user_id
   end
 

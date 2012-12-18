@@ -59,13 +59,21 @@
     <!-- *** This fieldType is used by Sunspot! *** -->
     <fieldType name="rand" class="solr.RandomSortField" omitNorms="true"/>
     <!-- *** This fieldType is used by Sunspot! *** -->
-    <fieldType name="text" class="solr.TextField" omitNorms="false">
-      <analyzer>
-        <tokenizer class="solr.StandardTokenizerFactory"/>
-        <filter class="solr.StandardFilterFactory"/>
-        <filter class="solr.LowerCaseFilterFactory"/>
-      </analyzer>
+
+    
+    <fieldType name="text" class="solr.TextField" positionIncrementGap="100">
+       <analyzer type="index">
+          <tokenizer class="solr.LowerCaseTokenizerFactory"/>
+          <filter class="solr.EdgeNGramFilterFactory" minGramSize="2" maxGramSize="15" side="front"/>
+       </analyzer>
+       <analyzer type="query">
+          <tokenizer class="solr.LowerCaseTokenizerFactory"/>
+          <filter class="solr.EdgeNGramFilterFactory" minGramSize="2" maxGramSize="15" side="front"/>
+       </analyzer>
     </fieldType>
+
+
+
     <!-- *** This fieldType is used by Sunspot! *** -->
     <fieldType name="boolean" class="solr.BoolField" omitNorms="true"/>
     <!-- *** This fieldType is used by Sunspot! *** -->
@@ -85,6 +93,7 @@
     <!-- *** This fieldType is used by Sunspot! *** -->
     <fieldType name="tdate" class="solr.TrieDateField" omitNorms="true"/>
     <fieldType name="ignored" stored="false" indexed="false" multiValued="true" class="solr.StrField" />
+
   </types>
   <fields>
     <!-- Valid attributes for fields:
