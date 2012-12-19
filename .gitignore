@@ -15,5 +15,6 @@
 /tmp
 
 # Ignore Sunspot pid/data
-/solr
+/solr/data
+/solr/pids
 /sunspot-solr.pid
