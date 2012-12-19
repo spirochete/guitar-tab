@@ -6,6 +6,7 @@ class TabsController < ApplicationController
   def index
     @search = Tab.search do
       fulltext params[:search]
+      paginate :page => params[:page], :per_page => 2
       if params[:username].present?
         @uname = User.where(:username => params[:username]).first
         if !@uname.nil?
