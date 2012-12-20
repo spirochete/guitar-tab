@@ -2,15 +2,13 @@
 
 - if !@tab.nil?
   %p
-    %b Artist:
-    = @tab.artist
-  %p
-    %b Song:
+    %b Viewing:
+    = link_to @tab.artist, tabs_path(:search => @tab.artist)
+    \-
     = @tab.song
   %p
     %b Tuning:
     = @tab.tuning
-
   %p
     %b Tabbed By:
     = @tab.user.username
@@ -19,9 +17,5 @@
   
   %pre= render :file => "public#{@tab.submission.url}"
 
-
-  = link_to 'Edit', edit_tab_path(@tab)
-  \|
-  = link_to 'Back', tabs_path
 - else
   %p No tabs found.

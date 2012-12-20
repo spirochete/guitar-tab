@@ -6,15 +6,12 @@
       = text_field_tag :search, params[:search]
       = submit_tag "Search", :name => nil
 
-
-%div= "Count: #{@tabs.count} tabs"
-
 %br
 %table
   %tr
     %th Artist/Song
     %th Tuning
-    %th Tabbed By
+    %th Last Updated
     %th
     %th
 
@@ -23,11 +20,9 @@
       %td
         = link_to tab.artist.camelize, tabs_path(:search => tab.artist)
         \-
-        = link_to tab.song.camelize, tab.submission.url
+        = link_to tab.song.camelize, tab
       %td= tab.tuning
-      - if tab.user.present?
-        %td= link_to tab.user.username, "/profile/#{tab.user.username}"
-      - else
-        %td
+      %td= tab.updated_at
       %td= link_to 'Edit', edit_tab_path(tab)
-      %td= link_to 'Delete', tab, :confirm => 'Really?', :method => :delete
+      %td= link_to 'X', tab, :confirm => 'Really?', :method => :delete
+  #previous_next= paginate @tabs
