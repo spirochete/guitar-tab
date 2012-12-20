@@ -6,7 +6,7 @@ class TabsController < ApplicationController
   def index
     @search = Tab.search do
       fulltext params[:search]
-      paginate :page => params[:page], :per_page => 2
+      paginate :page => params[:page], :per_page => 25
       if params[:username].present?
         @uname = User.where(:username => params[:username]).first
         if !@uname.nil?
@@ -58,7 +58,6 @@ class TabsController < ApplicationController
   # GET /tabs/1.json
   def show
     @tab = Tab.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @tab }

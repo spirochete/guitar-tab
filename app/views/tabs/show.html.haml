@@ -15,6 +15,11 @@
     %b Tabbed By:
     = @tab.user.username
 
+  
+  
+  %pre= render :file => "public#{@tab.submission.url}"
+
+
   = link_to 'Edit', edit_tab_path(@tab)
   \|
   = link_to 'Back', tabs_path

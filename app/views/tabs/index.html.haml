@@ -21,7 +21,7 @@
         %td
           = link_to tab.artist.camelize, tabs_path(:search => tab.artist)
           \-
-          = link_to tab.song.camelize, tab.submission.url
+          = link_to tab.song.camelize, tab
         %td= tab.tuning
         - if tab.user.present?
           %td= link_to tab.user.username, "/profile/#{tab.user.username}"
