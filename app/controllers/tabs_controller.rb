@@ -13,10 +13,7 @@ class TabsController < ApplicationController
           with(:user_id).equal_to(@uname.id)
         end
       end
-      order_by :artist
-      order_by :song
-      order_by :tuning
-      order_by :updated_at
+      order_by :updated_at, :desc
     end
     @tabs = @search.results
 
@@ -31,6 +28,7 @@ class TabsController < ApplicationController
       @search = Tab.search do
         fulltext params[:search]
         with(:user_id).equal_to(current_user.id)
+      order_by :artist
       end
     end
     @tabs = @search.results
