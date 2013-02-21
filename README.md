@@ -27,9 +27,10 @@ See <a href="https://github.com/plataformatec/devise">Devise</a> for instruction
 The minimum gram size for searching (i.e. number of characters in a string) is 2.
 The maximum is 15. This might make your server weep. To change this, check out solr/conf/schema.xml:63-70
 
-If you're feeling adventurous, check out <a href="https://wiki.apache.org/solr/AnalyzersTokenizersTokenFilters">Apache's Solr wiki</a>.
+If you're feeling adventurous, check out <a href="https://wiki.apache.org/solr/AnalyzersTokenizersTokenFilters">Apache's Solr wiki</a>
+to modify search filters according to your needs.
 
-to modify search filters according to your needs. Beware of quirky interactions with Mongo Mapper, however; if you
+Beware of quirky interactions with Mongo Mapper, however; if you
 get strange errors about filters not existing, look up Mongo Mapper + filter before you tear your hair out.
 I hear Mongoid is a little more friendly, but it's also a little more complex.
 
