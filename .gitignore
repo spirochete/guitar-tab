@@ -17,4 +17,5 @@
 # Ignore Sunspot pid/data
 /solr/data
 /solr/pids
+/solr/index
 /sunspot-solr.pid
