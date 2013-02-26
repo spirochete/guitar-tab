@@ -1,10 +1,67 @@
 @import "bootstrap";
-body { padding-top: 60px; }
-td, th { padding: 5px; border: 1px solid #000; }
-.nav-right { padding-top: 10px; margin-right: 10px; text-align: right;}
-.nav-right a, .nav-left a { margin-left: 10px; }
-.nav-left {float: left; padding-top: 10px; }
-.submit { margin-top: 10px; }
-.checkbox.inline { padding-left: 2px; }
-.error { background-color: #A4D3EE; width: 400px; padding: 10px; border: 1px dashed #000; text-align: center; }
 @import "bootstrap-responsive";
+
+
+body {
+	padding-top: 60px;
+	background: #d5ded9;
+
+	a {
+		color: #786a53;
+		&:hover { text-decoration: none; }
+	}
+}
+
+td, th {
+	padding: 5px;
+	border: 1px solid;
+}
+
+pre {
+	border: 0;
+	font-size: 14px;
+	line-height: 15px;
+	width: 550px;
+	background: #d9ceb2;
+	padding: 20px;
+}
+
+.navbar {
+	.navbar-inner {
+
+		background: #948c75;
+		font-size: 1.2em;
+
+		.nav-left {
+			float: left;
+			padding-top: 10px;
+		}
+	
+		.nav-right {
+			float: right;
+			padding-top: 10px;
+			margin-right: 10px;
+			text-align: right;
+		}
+
+		a {
+		    color: darken(#786a53, 30%);
+			margin-left: 15px;
+			text-decoration: none;
+		}
+	}
+}
+
+.checkbox.inline { padding-left: 2px; }
+
+.error {
+	width: 400px;
+	padding: 10px;
+	border: 1px dashed #000;
+	text-align: center;
+}
+
+#previous_next a + a { margin-left: 10px; }
+
+input[id="save"] { margin-top: 10px; }
+input[id="search"] { margin-right: 10px; }

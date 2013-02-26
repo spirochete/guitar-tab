@@ -5,6 +5,7 @@ require 'mongo'
 source 'http://gemcutter.org'
 gem 'rails', '3.2.10'
 gem 'thin'
+gem 'psych'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
@@ -13,8 +14,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'libv8'
   gem 'therubyracer'
-  gem 'less-rails'
-  gem 'twitter-bootstrap-rails'
+  gem 'sass-rails'
+  gem 'bootstrap-sass'
 end
 
 gem 'jquery-rails'

@@ -16,12 +16,12 @@ Required:
 
 Getting Started
 
-1. bundle install
+1. bundle
 2. bundle exec sunspot-installer
 3. bundle exec sunspot-solr start -s solr
-4. bundle exec sunspot:mongo:index
+4. rake sunspot:mongo:reindex
 
-You'll probably want to configure a mailer for user accounts.
+You'll probably want to configure a mailer.
 See <a href="https://github.com/plataformatec/devise">Devise</a> for instructions.
 
 The minimum gram size for searching (i.e. number of characters in a string) is 2.
